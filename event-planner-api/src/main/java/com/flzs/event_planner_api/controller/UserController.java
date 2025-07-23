@@ -3,6 +3,7 @@ package com.flzs.event_planner_api.controller;
 import com.flzs.event_planner_api.model.dto.user.*;
 import com.flzs.event_planner_api.model.entity.User;
 import com.flzs.event_planner_api.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -25,6 +26,10 @@ public class UserController {
 
     private final UserService userService;
 
+    @Operation(
+            summary = "Register a new user",
+            description = "Creates a standard user account using the provided credentials."
+    )
     @PostMapping("/register")
     public ResponseEntity<String> register(@Valid @RequestBody RegisterRequestDTO dto) {
         userService.register(dto);
@@ -32,6 +37,10 @@ public class UserController {
                 .body(USER_REGISTERED_MSG);
     }
 
+    @Operation(
+            summary = "Create new admin",
+            description = "Creates an admin user. This endpoint is intended for administrators."
+    )
     @PostMapping("/admin")
     public ResponseEntity<String> createAdmin(@Valid @RequestBody RegisterRequestDTO dto) {
         User creator = userService.getCurrentAuthenticatedUser();
@@ -40,12 +49,20 @@ public class UserController {
                 .body(ADMIN_CREATED_MSG + creator.getUsername());
     }
 
+    @Operation(
+            summary = "Get authenticated user's profile",
+            description = "Returns the profile data of the currently authenticated user."
+    )
     @GetMapping("/me")
     public ResponseEntity<UserResponseDTO> getAuthenticatedUser() {
         UserResponseDTO userDto = userService.getAuthenticatedUserProfile();
         return ResponseEntity.ok(userDto);
     }
 
+    @Operation(
+            summary = "Update authenticated user's profile",
+            description = "Updates the profile information of the currently authenticated user."
+    )
     @PatchMapping("/me")
     public ResponseEntity<UserResponseDTO> updateAuthenticatedUser(
             @Valid @RequestBody UserUpdateRequestDTO updateDto) {
@@ -54,12 +71,20 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    @Operation(
+            summary = "Delete authenticated user",
+            description = "Deletes the account of the currently authenticated user."
+    )
     @DeleteMapping("/me")
     public ResponseEntity<Void> deleteAuthenticatedUser() {
         userService.deleteAuthenticatedUser();
         return ResponseEntity.noContent().build();
     }
 
+    @Operation(
+            summary = "Get all users (admin only)",
+            description = "Returns a paginated list of all registered users. This endpoint is intended for administrators."
+    )
     @GetMapping("/admin")
     public ResponseEntity<List<UserResponseDTO>> getAllUsers(
             @RequestParam(defaultValue = DEFAULT_PAGE) int page,

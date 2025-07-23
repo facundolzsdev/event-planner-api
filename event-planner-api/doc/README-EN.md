@@ -98,6 +98,46 @@ Event management API (reminders, meetings, tasks) with role-based authentication
 
 ---
 
+## 🗄️ Database Setup
+
+The schema and sample data are included in this repository.
+
+✅ Step-by-step:
+1. Make sure MySQL is running locally on port 3306
+2. Run the init.sql script located at the project root (/DB files/init.sql)
+3. The database name is: personal_events_db
+
+📂 Example configuration in application.properties:
+<details><summary>🛠️ Modified:</summary>
+
+spring.application.name=event-planner-api
+spring.datasource.url=jdbc:mysql://localhost:3306/personal_events_db
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+
+</details>
+
+* ⚠️ Replace credentials (root/root) with your local setup.
+* 📦 The schema includes users and events tables with proper constraints.
+
+---
+
+## 🔗 Swagger UI
+
+Access the interactive API docs at:  
+➡️ [`http://localhost:8080/swagger-ui/index.html`](http://localhost:8080/swagger-ui/index.html)
+
+
+* Includes all endpoints with request/response details
+* Supports live testing in the browser
+* Automatically generated via springdoc-openapi
+
+No extra configuration is needed (it is enabled by default).
+
+---
+
 ## 🌐 Key Endpoints
 
 Key notes:

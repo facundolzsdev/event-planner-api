@@ -97,6 +97,45 @@ API para gestión personal de eventos (recordatorios, reuniones, tareas) con aut
 
 ---
 
+## 🗄️ Configuración de la Base de Datos
+
+El esquema y los datos de ejemplo están incluidos en este repositorio.
+
+✅ Paso a paso:
+1. Asegúrate de que MySQL esté ejecutándose localmente en el puerto 3306
+2. Ejecuta el script init.sql ubicado en la raíz del proyecto (/DB files/init.sql)
+3. El nombre de la base de datos es: personal_events_db
+
+📂 Ejemplo de configuración en application.properties:
+<details><summary>🛠️ Modificado:</summary>
+
+spring.application.name=event-planner-api
+spring.datasource.url=jdbc:mysql://localhost:3306/personal_events_db
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+
+</details>
+
+* ⚠️ Reemplaza las credenciales (root/root) según tu configuración local.
+* 📦 El esquema incluye las tablas users y events con sus respectivas restricciones.
+
+---
+
+## 🔗 Swagger UI
+
+Accede a la documentación interactiva de la API en:
+➡️ http://localhost:8080/swagger-ui/index.html
+
+* Incluye todos los endpoints con detalles de solicitud y respuesta
+* Permite pruebas en vivo desde el navegador
+* Generado automáticamente con springdoc-openapi
+
+No se necesita configuración adicional (viene habilitado por defecto).
+
+---
+
 ## 🌐 Endpoints Principales
 
 Notas clave:

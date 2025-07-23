@@ -4,7 +4,7 @@
 I will upload a series of videos demonstrating each endpoint, the functioning of JWT and roles, among other relevant explanations.     
 (I'll put the link in the project documentation).
 <br>
-### 2. Swagger Integration.
+### 2. Swagger Integration. (✅ Completed)
 I will add interactive documentation at `/swagger-ui.html`
 with the complete list of endpoints, browser tests, and request/response examples.
 <br>

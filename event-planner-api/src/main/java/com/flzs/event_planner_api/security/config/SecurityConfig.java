@@ -63,7 +63,14 @@ public class SecurityConfig {
                         .accessDeniedHandler(accessDeniedHandler)
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/register", "/api/auth/login").permitAll()
+                        .requestMatchers(
+                                "/api/users/register",
+                                "/api/auth/login",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/webjars/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilter(jwtAuthFilter)
