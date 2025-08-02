@@ -124,7 +124,7 @@ spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
 
 ---
 
-## 🔗 Swagger UI
+## 📑 Swagger UI
 
 Access the interactive API docs at:  
 ➡️ [`http://localhost:8080/swagger-ui/index.html`](http://localhost:8080/swagger-ui/index.html)
@@ -135,6 +135,24 @@ Access the interactive API docs at:
 * Automatically generated via springdoc-openapi
 
 No extra configuration is needed (it is enabled by default).
+
+---
+
+## 🎞️ YouTube Playlist
+
+A video series explaining how the endpoints of this REST API work, using **Postman** and **Swagger**.
+
+It is organized into three parts:
+1. **Endpoints for regular users:**  
+   Create, update, and delete events, as well as edit user credentials.
+
+2. **Endpoints for administrators:**  
+   Admin-only actions such as managing all registered users and events.
+
+3. **Swagger UI:**  
+   Testing endpoints from the browser and using Swagger to interact with the API.
+
+🔗 [Watch the YouTube playlist](https://www.youtube.com/playlist?list=PLo6gJIiicJy9CG8Pbb5FSazA3riQByYzV)
 
 ---
 
